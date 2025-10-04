@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume-Based Internship Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="icon"></div>
+            <h1>Resume-Based Internship Finder</h1>
+            <p class="subtitle">Upload your resume and discover perfect internship opportunities</p>
+        </header>
+
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-icon">📤</div>
+                <h2>Upload Your Resume</h2>
+                <p>Drag and drop your resume here or click to browse</p>
+                <p class="file-types">Supported formats: PDF, DOCX</p>
+                <input type="file" id="fileInput" accept=".pdf,.docx" hidden>
+                <button class="btn btn-primary" id="browseBtn" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+            </div>
+        </div>
+
+        <div class="resume-preview" id="resumePreview" style="display: none;">
+            <div class="preview-header">
+                <h3>Resume Preview</h3>
+                <button class="btn btn-secondary" id="changeFileBtn">Change File</button>
+            </div>
+            <div class="preview-content" id="previewContent"></div>
+            <button class="btn btn-primary btn-analyze" id="analyzeBtn">
+                <span class="btn-text">Analyze & Find Internships</span>
+                <span class="btn-loader" style="display: none;">
+                    <div class="spinner"></div>
+                </span>
+            </button>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="skill-detected">
+                <h3>Main Skill Detected</h3>
+                <div class="skill-badge" id="skillBadge"></div>
+            </div>
+
+            <div class="jobs-container">
+                <h3>Top Internship Opportunities</h3>
+                <div id="jobsList"></div>
+            </div>
+        </div>
+
+        <div class="loader" id="loader" style="display: none;">
+            <div class="loader-spinner"></div>
+            <p id="loaderText">Processing your resume...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
