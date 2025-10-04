@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Test</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept=".pdf,.docx">
+    <button onclick="document.getElementById('fileInput').click()">Browse Files</button>
+    
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                alert('File selected: ' + e.target.files[0].name);
+            }
+        });
+    </script>
+</body>
+</html>
